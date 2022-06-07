@@ -6,16 +6,11 @@ import com.daffa.mynewstarwarsapp.core.data.source.local.entity.PeopleEntity
 import com.daffa.mynewstarwarsapp.core.data.source.local.entity.StarshipEntity
 import com.daffa.mynewstarwarsapp.core.data.source.local.room.AppDao
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LocalDataSource private constructor(private val appDao: AppDao) {
-    companion object{
-        private var instance: LocalDataSource? = null
-
-        fun getInstance(appDao: AppDao): LocalDataSource =
-            instance ?: synchronized(this){
-                instance ?: LocalDataSource(appDao)
-            }
-    }
+@Singleton
+class LocalDataSource @Inject constructor(private val appDao: AppDao) {
 
     fun getAllFilm(): Flow<List<FilmEntity>> = appDao.getAllFilm()
     fun getAllPeople(): Flow<List<PeopleEntity>> = appDao.getAllPeople()

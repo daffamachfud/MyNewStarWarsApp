@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_catalogue"
         android:name="com.daffa.mynewstarwarsapp.ui.catalogue.CatalogueFragment"
         android:label="@string/catalogue"
         tools:layout="@layout/fragment_catalogue" />

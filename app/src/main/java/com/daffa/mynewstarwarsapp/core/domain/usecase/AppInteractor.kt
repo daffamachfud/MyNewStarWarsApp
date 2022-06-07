@@ -7,8 +7,9 @@ import com.daffa.mynewstarwarsapp.core.domain.model.People
 import com.daffa.mynewstarwarsapp.core.domain.model.Starship
 import com.daffa.mynewstarwarsapp.core.domain.repository.IAppRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class AppInteractor(private val appRepository: IAppRepository) : AppUseCase {
+class AppInteractor @Inject constructor(private val appRepository: IAppRepository) : AppUseCase {
     override fun getAllFilm(): Flow<Resource<List<Film>>> = appRepository.getAllFilm()
 
     override fun getAllPeople(): Flow<Resource<List<People>>> = appRepository.getAllPeople()

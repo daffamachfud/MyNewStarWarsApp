@@ -13,27 +13,13 @@ import com.daffa.mynewstarwarsapp.core.utils.AppExecutors
 import com.daffa.mynewstarwarsapp.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class AppRepository private constructor(
+class AppRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IAppRepository {
-
-    companion object {
-        @Volatile
-        private var instance: AppRepository? = null
-
-        fun getInstance(
-            remoteData: RemoteDataSource,
-            localData: LocalDataSource,
-            appExecutors: AppExecutors
-        ): AppRepository =
-            instance ?: synchronized(this) {
-                instance ?: AppRepository(remoteData, localData, appExecutors)
-            }
-    }
-
 
     override fun getAllFilm(): Flow<Resource<List<Film>>> =
         object : NetworkBoundResource<List<Film>, List<ResultFilm>>() {
