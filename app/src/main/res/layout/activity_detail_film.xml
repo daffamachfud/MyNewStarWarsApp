@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
@@ -33,26 +34,41 @@
                         android:id="@+id/img_detail_film"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
                         android:src="@color/colorSecondaryText"
                         tools:ignore="ContentDescription" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_above="@+id/tv_detail_film_title"
+                        android:layout_marginEnd="18dp"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="@color/colorAccent"
+                        android:contentDescription="@string/content_desc_fav"
+                        android:src="@drawable/ic_baseline_favorite" />
+
                     <View
+                        android:id="@+id/view_highlight"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
-                        android:background="@drawable/image_shadow"
-                        android:layout_alignParentBottom="true"/>
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/image_shadow" />
+
                     <TextView
                         android:id="@+id/tv_detail_film_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/img_detail_film"
-                        android:padding="16dp"
-                        android:maxLines="2"
                         android:ellipsize="end"
+                        android:maxLines="2"
+                        android:padding="16dp"
                         android:shadowColor="@color/colorPrimaryDark"
-                        android:textSize="28sp"
                         android:textColor="@color/colorAccent"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
@@ -63,22 +79,25 @@
                     android:layout_height="56dp"
                     android:background="@android:color/transparent"
                     android:theme="@style/ToolbarMain">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <ImageView
                             android:id="@+id/btn_close_detail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
                             android:layout_alignParentStart="true"
+                            android:layout_marginTop="20dp"
                             android:src="@drawable/ic_close"
                             tools:ignore="ContentDescription" />
+
                         <ImageView
                             android:layout_width="96dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
                             android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20dp"
                             android:layout_marginEnd="20dp"
                             android:src="@drawable/logostarwars"
                             tools:ignore="ContentDescription" />
@@ -110,30 +129,32 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="100dp"
                 android:visibility="gone" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/description_detail"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_detail_film_crawl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textStyle="bold"
-                    android:textColor="@color/colorText"/>
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </RelativeLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

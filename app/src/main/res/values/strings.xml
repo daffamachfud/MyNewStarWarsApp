@@ -45,5 +45,6 @@
     <string name="resource_gif_uazi">Resource GIF : Uazi</string>
     <string name="resource_api_swapi_dev">Resource API : SWAPI.dev</string>
     <string name="resource_image_starwars_com_databank">Resource Image : Starwars.com/databank</string>
+    <string name="content_desc_fav">Floating Button Favorite</string>
 
 </resources>
