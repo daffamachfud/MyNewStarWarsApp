@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">title</string>
+    <string name="sign_favorite">Sign Favorite</string>
+    <string name="description">description</string>
+    <string name="menu">menu</string>
+
+</resources>

@@ -18,7 +18,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.film.DetailFilmActivity"
+            android:name=".starship.DetailStarshipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".starship.StarshipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".people.DetailPeopleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".people.PeopleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".favorite.DetailFavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".favorite.FavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".film.DetailFilmActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

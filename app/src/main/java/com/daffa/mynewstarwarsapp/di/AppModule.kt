@@ -1,7 +1,7 @@
 package com.daffa.mynewstarwarsapp.di
 
-import com.daffa.mynewstarwarsapp.core.domain.usecase.AppInteractor
-import com.daffa.mynewstarwarsapp.core.domain.usecase.AppUseCase
+import com.daffa.core.domain.usecase.AppInteractor
+import com.daffa.core.domain.usecase.AppUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

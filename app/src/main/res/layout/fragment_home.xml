@@ -6,7 +6,7 @@
     android:background="@drawable/spacebackground"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
