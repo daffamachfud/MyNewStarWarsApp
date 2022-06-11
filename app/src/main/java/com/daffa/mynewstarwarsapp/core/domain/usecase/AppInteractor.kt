@@ -12,9 +12,19 @@ import javax.inject.Inject
 class AppInteractor @Inject constructor(private val appRepository: IAppRepository) : AppUseCase {
     override fun getAllFilm(): Flow<Resource<List<Film>>> = appRepository.getAllFilm()
 
+    override fun setFilmToFavorite(film: Film) {
+        appRepository.insertFilmToFavorite(film)
+    }
+
+    override fun deleteFilmFromFavorite(film: Film) {
+        appRepository.deleteFilmFromFavorite(film)
+    }
+
     override fun getAllPeople(): Flow<Resource<List<People>>> = appRepository.getAllPeople()
 
     override fun getAllStarship(): Flow<Resource<List<Starship>>> = appRepository.getAllStarship()
 
     override fun getAllFavorite(): Flow<Resource<List<Favorite>>> = appRepository.getAllFavorite()
+
+    override fun checkExistInFavorite(id: String): Flow<Boolean> = appRepository.checkExistInFavorite(id)
 }

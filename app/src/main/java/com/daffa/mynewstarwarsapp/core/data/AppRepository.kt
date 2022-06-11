@@ -42,6 +42,20 @@ class AppRepository @Inject constructor(
             }
         }.asFlow()
 
+    override fun insertFilmToFavorite(film: Film) {
+        val filmEntity = DataMapper.mapFilmDomainToEntity(film)
+        appExecutors.diskIO().execute { localDataSource.insertFavorite(
+            DataMapper.mapFilmEntityToFavoriteEntity(filmEntity)
+        ) }
+    }
+
+    override fun deleteFilmFromFavorite(film: Film) {
+        val filmEntity = DataMapper.mapFilmDomainToEntity(film)
+        appExecutors.diskIO().execute { localDataSource.deleteFilmFromFavorite(
+            DataMapper.mapFilmEntityToFavoriteEntity(filmEntity)
+        ) }
+    }
+
     override fun getAllPeople(): Flow<Resource<List<People>>> {
         TODO("Not yet implemented")
     }
@@ -52,5 +66,9 @@ class AppRepository @Inject constructor(
 
     override fun getAllFavorite(): Flow<Resource<List<Favorite>>> {
         TODO("Not yet implemented")
+    }
+
+    override fun checkExistInFavorite(id: String) : Flow<Boolean>{
+       return localDataSource.checkExistInFavorite(id)
     }
 }

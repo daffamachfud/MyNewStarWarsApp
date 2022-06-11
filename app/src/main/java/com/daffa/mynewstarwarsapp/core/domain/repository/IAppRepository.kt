@@ -9,7 +9,14 @@ import kotlinx.coroutines.flow.Flow
 
 interface IAppRepository {
     fun getAllFilm(): Flow<Resource<List<Film>>>
+    fun insertFilmToFavorite(film: Film)
+    fun deleteFilmFromFavorite(film: Film)
+
     fun getAllPeople(): Flow<Resource<List<People>>>
     fun getAllStarship(): Flow<Resource<List<Starship>>>
+
     fun getAllFavorite(): Flow<Resource<List<Favorite>>>
+
+    fun checkExistInFavorite(id:String):Flow<Boolean>
+
 }

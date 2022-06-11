@@ -1,5 +1,6 @@
 package com.daffa.mynewstarwarsapp.core.utils
 
+import com.daffa.mynewstarwarsapp.core.data.source.local.entity.FavoriteEntity
 import com.daffa.mynewstarwarsapp.core.data.source.local.entity.FilmEntity
 import com.daffa.mynewstarwarsapp.core.data.source.remote.response.ResultFilm
 import com.daffa.mynewstarwarsapp.core.domain.model.Film
@@ -33,6 +34,13 @@ object DataMapper {
         id = input.filmId,
         title = input.title,
         description = input.description,
+        imagePath = input.imagePath
+    )
+
+    fun mapFilmEntityToFavoriteEntity(input: FilmEntity) = FavoriteEntity(
+        id = input.id,
+        name = input.title,
+        type = "film",
         imagePath = input.imagePath
     )
 }

@@ -31,9 +31,9 @@ interface AppDao {
     suspend fun insertStarship(favorite: List<StarshipEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertFavorite(favorite: List<FavoriteEntity>)
+    fun insertFavorite(favoriteEntity: FavoriteEntity)
 
-    @Update
+    @Insert
     fun updateFavoriteFilm(film: FilmEntity)
 
     @Update
@@ -41,6 +41,12 @@ interface AppDao {
 
     @Update
     fun updateFavoriteStarship(starship: StarshipEntity)
+
+    @Query("SELECT EXISTS(SELECT * FROM favorite WHERE id = :id)")
+    fun checkFavoriteIsExist(id : String):Flow<Boolean>
+
+    @Delete
+    fun deleteFavorite(favoriteEntity: FavoriteEntity)
 
 
 }
