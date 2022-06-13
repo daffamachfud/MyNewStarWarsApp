@@ -30,6 +30,8 @@ buildscript {
     ext.hilt_version = '2.42'
 
     ext.leak_canary = "2.4"
+    ext.sql_cipher = "4.4.0"
+    ext.sqlite_ktx = "2.2.0"
 }
 
 plugins {
