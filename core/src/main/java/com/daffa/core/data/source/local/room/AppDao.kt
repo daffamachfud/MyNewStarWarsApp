@@ -1,3 +1,5 @@
+@file:Suppress("unused", "unused", "unused")
+
 package com.daffa.core.data.source.local.room
 
 import androidx.room.*
@@ -32,15 +34,6 @@ interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavorite(favoriteEntity: FavoriteEntity)
-
-    @Insert
-    fun updateFavoriteFilm(film: FilmEntity)
-
-    @Update
-    fun updateFavoritePeople(people: PeopleEntity)
-
-    @Update
-    fun updateFavoriteStarship(starship: StarshipEntity)
 
     @Query("SELECT EXISTS(SELECT * FROM favorite WHERE id = :id)")
     fun checkFavoriteIsExist(id: String): Flow<Boolean>

@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daffa.core.data.Resource
 import com.daffa.core.ui.StarshipAdapter
 import com.daffa.mynewstarwarsapp.databinding.ActivityStarshipBinding
-import com.daffa.mynewstarwarsapp.film.DetailFilmActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +33,7 @@ class StarshipActivity : AppCompatActivity() {
         }
         starshipAdapter.onItemClick = { select ->
             val intent = Intent(this, DetailStarshipActivity::class.java)
-            intent.putExtra(DetailFilmActivity.EXTRA_DATA, select)
+            intent.putExtra(DetailStarshipActivity.EXTRA_DATA, select)
             startActivity(intent)
         }
     }
