@@ -82,4 +82,7 @@ public *;
 
 ##---------------Begin: proguard configuration for RxJava ----------
 # Uncomment if you use RxJava
-#-dontwarn java.util.concurrent.Flow*
+-dontwarn java.util.concurrent.Flow*
+
+# Keep class names of Hilt injected ViewModels since their name are used as a multibinding map key.
+-keep class com.daffa.favorite.FavoriteActivity {public *;}

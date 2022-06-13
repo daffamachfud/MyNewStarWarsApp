@@ -18,7 +18,7 @@ class NetworkModule {
 
     private val hostname = "swapi.py4e.com"
     private val certificatePinner = CertificatePinner.Builder()
-        .add(hostname, "sha256/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+        .add(hostname, "sha256/5mdRtYPVLzwqS8QneNFJOcTrqxIrL5j01JDJxLZ1dcw=")
         .build()
 
 

@@ -48,4 +48,6 @@
     <string name="title_notifications">Notifications</string>
     <string name="vehicles">Vehicles</string>
     <string name="view_more">View More</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="empty_data">Data Kosong</string>
 </resources>

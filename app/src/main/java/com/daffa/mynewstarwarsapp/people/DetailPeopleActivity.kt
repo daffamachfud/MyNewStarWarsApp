@@ -25,6 +25,10 @@ class DetailPeopleActivity : AppCompatActivity() {
 
         val detail = intent.getParcelableExtra<People>(DetailFilmActivity.EXTRA_DATA)
         showDetailPeople(detail)
+
+        binding.btnCloseDetail.setOnClickListener {
+            finish()
+        }
     }
 
     private fun showDetailPeople(detail: People?) {

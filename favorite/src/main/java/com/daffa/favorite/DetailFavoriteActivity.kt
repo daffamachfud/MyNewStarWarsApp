@@ -1,4 +1,4 @@
-package com.daffa.mynewstarwarsapp.favorite
+package com.daffa.favorite
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +17,10 @@ class DetailFavoriteActivity : AppCompatActivity() {
 
         val detail = intent.getParcelableExtra<Favorite>(EXTRA_DATA)
         showDetailFavorite(detail)
+
+        binding.btnCloseDetail.setOnClickListener {
+            finish()
+        }
     }
 
     private fun showDetailFavorite(detail: Favorite?) {

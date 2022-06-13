@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val homeViewModel: HomeViewModel by viewModels()
-    private val homeAdapter = HomeAdapter()
+    private var homeAdapter = HomeAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,6 +76,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.layoutMovie.rvHighRating.adapter = null
         _binding = null
     }
 }

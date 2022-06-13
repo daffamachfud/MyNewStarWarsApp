@@ -1,6 +1,7 @@
 package com.daffa.mynewstarwarsapp.catalogue
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daffa.core.ui.CatalogueAdapter
 import com.daffa.mynewstarwarsapp.R
 import com.daffa.mynewstarwarsapp.databinding.FragmentCatalogueBinding
-import com.daffa.mynewstarwarsapp.favorite.FavoriteActivity
 import com.daffa.mynewstarwarsapp.people.PeopleActivity
 import com.daffa.mynewstarwarsapp.starship.StarshipActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,8 +44,8 @@ class CatalogueFragment : Fragment() {
                 Log.d(TAG, "Click Menu $select")
                 when (select) {
                     "Favorite" -> {
-                        val intent = Intent(activity, FavoriteActivity::class.java)
-                        startActivity(intent)
+                        val uri = Uri.parse("favoriteapp://favorite")
+                        startActivity(Intent(Intent.ACTION_VIEW, uri))
                     }
                     "People" -> {
                         val intent = Intent(activity, PeopleActivity::class.java)

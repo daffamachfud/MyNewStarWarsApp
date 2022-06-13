@@ -30,12 +30,6 @@
             android:name=".people.PeopleActivity"
             android:exported="false" />
         <activity
-            android:name=".favorite.DetailFavoriteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".favorite.FavoriteActivity"
-            android:exported="false" />
-        <activity
             android:name=".film.DetailFilmActivity"
             android:exported="false" />
         <activity

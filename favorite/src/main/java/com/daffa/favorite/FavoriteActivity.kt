@@ -1,4 +1,4 @@
-package com.daffa.mynewstarwarsapp.favorite
+package com.daffa.favorite
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,16 +9,33 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.daffa.core.ui.FavoriteAdapter
 import com.daffa.mynewstarwarsapp.databinding.ActivityFavoriteBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.daffa.mynewstarwarsapp.di.FavoriteModuleDependencies
+import dagger.hilt.android.EntryPointAccessors
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class FavoriteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFavoriteBinding
-    private val favoriteViewModel: FavoriteViewModel by viewModels()
+
+    @Inject
+    lateinit var factory: ViewModelFactory
+
+    private val favoriteViewModel: FavoriteViewModel by viewModels {
+        factory
+    }
     private val favoriteAdapter = FavoriteAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        DaggerFavoriteComponent.builder()
+            .context(this)
+            .appDependencies(
+                EntryPointAccessors.fromApplication(
+                    applicationContext,
+                    FavoriteModuleDependencies::class.java
+                )
+            )
+            .build()
+            .inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -41,8 +58,16 @@ class FavoriteActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.VISIBLE
         favoriteViewModel.favorite.observe(this) { favorite ->
             if (favorite != null) {
-                binding.progressBar.visibility = View.GONE
-                favoriteAdapter.setData(favorite)
+                if(favorite.isNotEmpty()){
+                    binding.progressBar.visibility = View.GONE
+                    binding.rvFavorite.visibility = View.VISIBLE
+                    binding.layoutEmpty.visibility = View.GONE
+                    favoriteAdapter.setData(favorite)
+                }else{
+                    binding.progressBar.visibility = View.GONE
+                    binding.layoutEmpty.visibility = View.VISIBLE
+                    binding.rvFavorite.visibility = View.GONE
+                }
             }
         }
     }

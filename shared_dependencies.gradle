@@ -11,6 +11,8 @@ dependencies {
 
     implementation "de.hdodenhof:circleimageview:$circle_image"
     implementation "pl.droidsonroids.gif:android-gif-drawable:$gif_android"
+    implementation "com.airbnb.android:lottie:$lottie_version"
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
