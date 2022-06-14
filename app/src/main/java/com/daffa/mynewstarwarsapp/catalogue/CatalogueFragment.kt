@@ -68,6 +68,7 @@ class CatalogueFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.rvCatalogue.adapter = null
         _binding = null
     }
 

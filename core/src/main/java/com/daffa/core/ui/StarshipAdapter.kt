@@ -15,7 +15,6 @@ class StarshipAdapter : RecyclerView.Adapter<StarshipAdapter.ListViewHolder>() {
     private var listData = ArrayList<Starship>()
     var onItemClick: ((Starship) -> Unit)? = null
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<Starship>?) {
         if (newListData == null) return
         listData.clear()

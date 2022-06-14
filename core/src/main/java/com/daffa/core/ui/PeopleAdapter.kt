@@ -16,7 +16,6 @@ class PeopleAdapter : RecyclerView.Adapter<PeopleAdapter.ListViewHolder>() {
     private var listData = ArrayList<People>()
     var onItemClick: ((People) -> Unit)? = null
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<People>?) {
         if (newListData == null) return
         listData.clear()
